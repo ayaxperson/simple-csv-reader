@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
+}
+
+group = 'io.github.ayaxperson'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.formdev:flatlaf:3.5.4'
+}
+
+tasks {
+    shadowJar {
+        manifest {
+            attributes["Main-Class"] = "io.github.ayaxperson.boorumassdownloader.Main"
+        }
+    }
+}
