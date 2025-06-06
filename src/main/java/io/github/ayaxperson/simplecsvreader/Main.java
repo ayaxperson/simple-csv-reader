@@ -110,7 +110,7 @@ public class Main {
             columnPanel.add(Box.createVerticalStrut(5));
 
             for (String entry : csv.records[i]) {
-                final String text = entry == null ? "<html><i>missing</i></html>" : entry;
+                final String text = entry == null ? "<html><i>missing</i></html>" : (entry.isBlank() ? "<html><i>blank</i></html>" : entry);
 
                 final JLabel entryLabel = new JLabel(text, SwingConstants.CENTER);
 
@@ -162,8 +162,8 @@ public class Main {
 
             int maxRows = 0;
 
-            for (final List<String> columns : raw) {
-                maxRows = Math.max(columns.size(), maxRows);
+            for (final List<String> rows : raw) {
+                maxRows = Math.max(rows.size(), maxRows);
             }
 
             for (final List<String> rows : raw) {
